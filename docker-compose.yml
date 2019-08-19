@@ -1,11 +1,11 @@
 version: '3.7'
 services:
+  #db service, mysql on port 3307
   db:
-    #build: ./db/
     image: mysql
-    container_name: myDb
+    container_name: studyportaldb
     ports:
-      - 3306:3306
+      - 3307:3306
     command: --default-authentication-plugin=mysql_native_password
     restart: "no"
     environment:
@@ -13,18 +13,19 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./db/data:/var/lib/mysql
+  #check Dockerfile for details. studyportal default
   studyportal:
     build: .
     container_name: studyportal
     environment:
-      DB_URL: jdbc:mysql://myDb:3306/processed?rewriteBatchedStatements=true&serverTimezone=Europe/Berlin
+      DB_URL: jdbc:mysql://studyportaldb/processed?rewriteBatchedStatements=true&serverTimezone=Europe/Berlin
     depends_on:
       - db
     ports:
-      - 80:80
+      - 8080:80
   adminer:
     image: adminer
     ports:
-      - 8080:8080
+      - 8090:8080
 volumes:
   db_data:

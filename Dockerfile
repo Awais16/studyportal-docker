@@ -8,8 +8,8 @@ WORKDIR /app
 COPY studyportal.jar app/studyportal.jar
 
 #some configuration enviroment variable for study portal
-
-ENV DB_URL jdbc:mysql://localhost:3306/processed?rewriteBatchedStatements=true&serverTimezone=Europe/Berlin
+#overrides DB_URL in docker compose
+#ENV DB_URL jdbc:mysql://localhost:3307/processed?rewriteBatchedStatements=true&serverTimezone=Europe/Berlin
 ENV DB_USERNAME root
 ENV DB_PASSWORD root
 
