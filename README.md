@@ -33,4 +33,5 @@ Mysql dump is **required**
 ###### Info
 * Dockerfile contains configuration for studyportal
 * docker-compose.yml file contains configurations for mysql
-* Mysql workbench can be used to import mysql data for running portal
+* Mysql workbench/Adminner can be used to import mysql data for running portal
+* Study portal itself gives overview of live data from Garmin cloud for each participant. Important benefit for study manager includes improvement of study protocol compliance and data completeness for longitudinal studies.
